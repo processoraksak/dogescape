@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://tx24spugr0bu"]
+
+[ext_resource type="Script" path="res://scenes/scrolling_bg/scrolling_bg.gd" id="1_35fxg"]
+[ext_resource type="PackedScene" uid="uid://bmggb57hnbda5" path="res://scenes/scrolling_layer/scrolling_layer.tscn" id="2_08ia2"]
+[ext_resource type="Texture2D" uid="uid://cuuanerg5mnqc" path="res://assets/background/mountains.png" id="3_r5241"]
+[ext_resource type="Texture2D" uid="uid://dtcaap5sgutjd" path="res://assets/background/clouds.png" id="4_queby"]
+
+[node name="ScrollingBg" type="ParallaxBackground"]
+script = ExtResource("1_35fxg")
+
+[node name="ScrollingLayer" parent="." instance=ExtResource("2_08ia2")]
+texture = ExtResource("3_r5241")
+scroll_scale = 0.6
+
+[node name="ScrollingLayer2" parent="." instance=ExtResource("2_08ia2")]
+motion_offset = Vector2(0, -50)
+texture = ExtResource("4_queby")
+scroll_scale = 0.3
+tx_x = 1920.0
+tx_y = 1080.0

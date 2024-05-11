@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpjkm2ynb6out"]
+
+[ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_sfmij"]
+[ext_resource type="FontFile" uid="uid://cjuge5uku07fw" path="res://assets/fonts/Skranji-Bold.ttf" id="2_moi50"]
+[ext_resource type="LabelSettings" uid="uid://davkparpqgfq7" path="res://assets/fonts/hs_font.tres" id="3_847f3"]
+[ext_resource type="Texture2D" uid="uid://csix6iqoyf8jv" path="res://assets/background/sky.png" id="4_sjb36"]
+[ext_resource type="AudioStream" uid="uid://d3lk4fw5x2q0q" path="res://assets/audio/game_over.wav" id="5_sfx75"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8aiod"]
+font = ExtResource("2_moi50")
+font_size = 48
+font_color = Color(0.756863, 0.160784, 0.0627451, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0.094101, 0.12698, 1)
+shadow_offset = Vector2(4, 4)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sfmij")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sjb36")
+expand_mode = 1
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 54
+
+[node name="GameOverText" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over"
+label_settings = SubResource("LabelSettings_8aiod")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Score"
+label_settings = ExtResource("3_847f3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="GamerOverAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_sfx75")
+volume_db = -10.0

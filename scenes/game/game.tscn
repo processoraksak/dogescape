@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4ejm1rdk1tvf"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_attwd"]
+[ext_resource type="PackedScene" uid="uid://cyn6okd7wuifk" path="res://scenes/plane/plane.tscn" id="2_ncvw4"]
+[ext_resource type="PackedScene" uid="uid://ni13l82yhkfp" path="res://scenes/barrier/barrier.tscn" id="3_fttx7"]
+[ext_resource type="PackedScene" uid="uid://c2di8lrbckloq" path="res://scenes/pipes/pipes.tscn" id="4_nsv5i"]
+[ext_resource type="PackedScene" uid="uid://dyv6xequmf10q" path="res://scenes/hud/hud.tscn" id="6_tk8rg"]
+[ext_resource type="PackedScene" uid="uid://tx24spugr0bu" path="res://scenes/scrolling_bg/scrolling_bg.tscn" id="7_qpq31"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_attwd")
+pipes_scene = ExtResource("4_nsv5i")
+
+[node name="Plane" parent="." instance=ExtResource("2_ncvw4")]
+position = Vector2(67, 422)
+
+[node name="Barrier" parent="." instance=ExtResource("3_fttx7")]
+
+[node name="Barrier2" parent="." instance=ExtResource("3_fttx7")]
+position = Vector2(-2, 864)
+
+[node name="PipesHolder" type="Node" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 1.3
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer" instance=ExtResource("6_tk8rg")]
+
+[node name="ScrollingBg" parent="." instance=ExtResource("7_qpq31")]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
