@@ -10,5 +10,5 @@ func _ready():
 	score_text.text = ("Score: " + str(ScoreManager._get_score())+ "\nHigh Score: " + str(ScoreManager._get_high_score()))
 
 func _process(delta):
-	if game_over_timer.is_stopped():
+	if game_over_timer.is_stopped() or Input.is_action_just_pressed("fly"):
 		GameManager._change_scene_main()

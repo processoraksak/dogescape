@@ -23,6 +23,7 @@ func fly() -> void:
 		velocity.y = FLYPOWER
 
 func die() -> void:
+	ScoreManager.write_save()
 	sprite.stop()
 	set_physics_process(false)
 	SignalManager._on_plane_died.emit()
