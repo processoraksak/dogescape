@@ -10,10 +10,6 @@ func _ready():
 	ScoreManager._set_score(0)
 	spawn_pipes()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func spawn_pipes() -> void:
 	if !spawn_timer.is_stopped():
 		var new_pipes = pipes_scene.instantiate()
@@ -22,6 +18,10 @@ func spawn_pipes() -> void:
 	
 func _on_spawn_timer_timeout():
 	spawn_pipes()
+	if !spawn_timer.wait_time <= 0.5:
+		spawn_timer.wait_time -= (spawn_timer.wait_time/77)
+	if !GameManager.scroll_speed >= 400:
+		GameManager.scroll_speed += (GameManager.scroll_speed/75)
 	
 func stop_pipes() -> void:
 	spawn_timer.stop()
