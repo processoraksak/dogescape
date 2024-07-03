@@ -1,6 +1,6 @@
 extends Node2D
 
-var scroll_speed: float = GameManager.SCROLL_SPEED
+var scroll_speed: float = GameManager.scroll_speed
 
 @onready var laser = $Laser
 @onready var score_audio_player = $ScoreAudioPlayer

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://daqh6g15by7u5"]
 
-[ext_resource type="Texture2D" uid="uid://csix6iqoyf8jv" path="res://assets/background/sky.png" id="1_7atmh"]
 [ext_resource type="LabelSettings" uid="uid://ds1ftd45hegos" path="res://assets/fonts/72px_red_bold.tres" id="1_nx5qj"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_o8x6q"]
+[ext_resource type="Texture2D" uid="uid://csix6iqoyf8jv" path="res://assets/background/sky.png" id="2_dg51b"]
 [ext_resource type="LabelSettings" uid="uid://bx3w1uaqvbndw" path="res://assets/fonts/48px_white_bold.tres" id="2_subu0"]
 [ext_resource type="LabelSettings" uid="uid://davkparpqgfq7" path="res://assets/fonts/hs_font.tres" id="3_u5owd"]
-[ext_resource type="AudioStream" uid="uid://cxwdxgf6rfgdo" path="res://assets/audio/bgm_menu.mp3" id="6_8bpao"]
+[ext_resource type="AudioStream" uid="uid://cxwdxgf6rfgdo" path="res://assets/audio/bgm_menu.mp3" id="6_0eolx"]
 
 [sub_resource type="Animation" id="Animation_rofmx"]
 length = 0.001
@@ -60,7 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_7atmh")
+texture = ExtResource("2_dg51b")
 expand_mode = 1
 
 [node name="MC" type="MarginContainer" parent="."]
@@ -113,6 +113,6 @@ libraries = {
 autoplay = "flash"
 
 [node name="MainAudioPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_8bpao")
+stream = ExtResource("6_0eolx")
 volume_db = -10.0
 autoplay = true
