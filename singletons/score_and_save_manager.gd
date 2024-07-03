@@ -45,4 +45,11 @@ func read_save():
 			if current_line:
 				_set_high_score(current_line["high_score"])
 				return int(current_line["high_score"])	
-
+	
+	#Ensuring that data.json is existent for the first run
+	else:
+		file = FileAccess.open(PATH, FileAccess.WRITE)
+		data = {"high_score": 0}
+		file.store_line(JSON.stringify(data))
+		file.close
+		return 0
